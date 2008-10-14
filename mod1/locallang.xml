@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;web_txtranslationmanagerM1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Translation Manager</label>
+			<label index="language_manage">Manage languages</label>
+			<label index="language_configure">Configure languages</label>
+			<label index="language_translate">Translate page(s)</label>
+			<label index="submit_add_language">Add language</label>
+			<label index="unhide">Show</label>
+			<label index="hide">Hide</label>
+			<label index="delete">Delete</label>
+			<label index="delete_language_alert">Are you sure you want to delete language %s?</label>
+			<label index="section_language_list">Manage Languages</label>
+			<label index="section_language_add">Add New Language</label>
+			<label index="section_language_add_name">Choose Language</label>
+			<label index="section_language_add_label">Language Label</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">Translation Manager</label>
+			<label index="language_manage">Manage languages</label>
+			<label index="language_configure">Configure languages</label>
+			<label index="language_translate">Translate page(s)</label>
+			<label index="submit_add_language">Sprache anlegen</label>
+			<label index="unhide">Show</label>
+			<label index="hide">Hide</label>
+			<label index="delete">Delete</label>
+			<label index="delete_language_alert">Wollen Sie die Sprache %s wirklich löschen?</label>
+			<label index="section_language_list">Manage Languages</label>
+			<label index="section_language_add">Add New Language</label>
+			<label index="section_language_add_name">Choose Language</label>
+			<label index="section_language_add_label">Language Label</label>
+		</languageKey>
+	</data>
+</T3locallang>

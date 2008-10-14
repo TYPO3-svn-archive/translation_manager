@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'translation_manager'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="cm1_title">Translate page(s)</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="cm1_title">Seite(n) übersetzen</label>
+		</languageKey>
+	</data>
+</T3locallang>
