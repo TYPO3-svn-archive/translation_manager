@@ -1,7 +1,28 @@
 <?php
+
+class translation_manager_management extends tx_translationmanager_module1 {
+
+	/**
+	 * init function which inits the submodule
+     *
+     */
+	function init() {
+		parent::init();
+	}
+
+	/**
+	 * main function which returns the content
+     *
+     */
+	 
+	function main() {
 					global $BACK_PATH;
+                    $this->doc = t3lib_div::makeInstance('mediumDoc');
+                    $this->doc->backPath = $BACK_PATH;
+
 					$content = '';
-					
+
+
 					// BEGIN SUBMIT ACTION 'add_language':
 					// installs the selected language
 					if(t3lib_div::_GP('add_language') != '') {
@@ -10,7 +31,7 @@
 						
 					  // Get info from static tables for choosen language
 					  $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-									'*',
+									'uid',
 									'static_languages',
 									'uid = '.(int)t3lib_div::_GP('new_lang')
   					);
@@ -46,14 +67,14 @@
 					
 					// Get all installed shown and hidden languages
 					$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-									'*',
+									'uid, hidden, flag, title',
 									'sys_language',
 									'1 =1'
 					);
 					$count = $GLOBALS['TYPO3_DB']->sql_affected_rows();
 					
 					$subcontent = '<table>';
-					
+
 					// Print all installed shown and hidden languages
 					while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
 						$state = ($row['hidden'] ? 'unhide' : 'hide');
@@ -134,5 +155,14 @@
 				$subcontent .= '<tr><td><input type="submit" name="add_language" value="' . $GLOBALS['LANG']->getLL('submit_add_language') . '" /></td><td>&nbsp;</td></tr>';
         $subcontent .= '</table>';
         $content .= $this->doc->section($GLOBALS['LANG']->getLL('section_language_add'),$subcontent);
-				
+        return $content;
+    }
+}
+
+
+// make instance
+$management = t3lib_div::makeInstance(translation_manager_management);
+$management->init();
+$content = $management->main();
+
 ?>
