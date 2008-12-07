@@ -47,8 +47,8 @@ class translation_manager_configuration extends tx_translationmanager_module1 {
 		);
 		
 		// 
-		// $content = $GLOBALS['LANG']->getLL('Choose a page to select');
-		$content = 'Choose a page to create configuration <br /><br />';
+		$content = $GLOBALS['LANG']->getLL('choose_config_page');
+		$content .= '<br /><br />';
 		
 		while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
 			$content .= t3lib_iconWorks::getIconImage('pages', t3lib_BEfunc::getRecordWSOL('pages', $$row['uid']), $GLOBALS['BACK_PATH'], ' align="top" title="ID: '. $row['uid'] .'"');
@@ -74,7 +74,8 @@ class translation_manager_configuration extends tx_translationmanager_module1 {
 		);
 		
 		// TODO: use lang file
-		$content = 'Enable the following languages for the current site<br /><br />';
+		$content =  $GLOBALS['LANG']->getLL('choose_languages');
+        $content .= '<br /><br />';
 		
 		// set css styles
 		$this->doc->inDocStylesArray[] = '
@@ -86,7 +87,11 @@ class translation_manager_configuration extends tx_translationmanager_module1 {
 			';
 		
 		// set table header
-		$content .= '<table id="config"><tr class="head"><td colspan="3" class="language">Avialable languages</td><td class="default">Default language</td></tr>';
+		$content .= '<table id="config">
+                                <tr class="head">
+                                        <td colspan="3" class="language">' . $GLOBALS['LANG']->getLL('available_languages') . '</td>
+                                        <td class="default">' . $GLOBALS['LANG']->getLL('default_language') . '</td>
+                                </tr>';
 		
 		while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
 			$content .= '<tr>';
@@ -98,7 +103,7 @@ class translation_manager_configuration extends tx_translationmanager_module1 {
 		}
 		$content .= '</table>';
 		
-		$content .= '<input type="submit" name="submit" value="Generate configuration" />';
+		$content .= '<input type="submit" name="submit" value="' . $GLOBALS['LANG']->getLL('submit_generate_config') . '" />';
 		
 		return $content;
 	}
@@ -121,7 +126,7 @@ class translation_manager_configuration extends tx_translationmanager_module1 {
 
 
 // make instance
-$configuration = new translation_manager_configuration;
+$configuration = t3lib_div::makeInstance('translation_manager_configuration');
 $configuration->init();
 $content = $configuration->main();
 ?>

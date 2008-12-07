@@ -19,6 +19,11 @@
 			<label index="section_language_add">Add New Language</label>
 			<label index="section_language_add_name">Choose Language</label>
 			<label index="section_language_add_label">Language Label</label>
+            <label index="choose_config_page">Choose a page to create configuration</label>
+            <label index="choose_languages">Enable the following languages for the current site</label>
+            <label index="available_languages">Available languages</label>
+            <label index="default_language">Default language</label>
+            <label index="submit_generate_config">Generate Configuration</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="title">Translation Manager</label>
